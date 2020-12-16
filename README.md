@@ -1,9 +1,10 @@
-# Fabric Example Mod
+# Horizontal Panes [FABRIC]
 
-## Setup
+## About
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+    This mod is a port of its Forge counterpart.
+
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+    This project is available under the MIT License.
