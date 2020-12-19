@@ -24,6 +24,7 @@
 package com.codenamerevy.horizontalpanes.content.blocks;
 
 import com.codenamerevy.horizontalpanes.init.HPContent;
+import com.google.common.annotations.Beta;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
@@ -50,6 +51,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.Unmodifiable;
 
 public class HorizontalPaneBlock extends SlabBlock implements Waterloggable
 {
@@ -87,24 +89,36 @@ public class HorizontalPaneBlock extends SlabBlock implements Waterloggable
         }
     }
 
-    /*@Environment(EnvType.CLIENT)
-    public boolean isSideInvisible(BlockState state, BlockState stateFrom, Direction direction)
+    @Override
+    @Environment(EnvType.CLIENT)
+    @SuppressWarnings("deprecation")
+    public boolean isSideInvisible(BlockState state, BlockState neighbourState, Direction dir)
     {
-        SlabType slabType = state.get(TYPE);
-        switch(slabType) {
-            case DOUBLE:
-                if (stateFrom.getBlock() == Blocks.GLASS) return true;
-                else if (stateFrom.getBlock() == this) return true;
-            case TOP:
-                if (stateFrom.getBlock() == Blocks.GLASS) return true;
-                else if (stateFrom.getBlock() == this) return true;
-            case BOTTOM:
-                if (stateFrom.getBlock() == Blocks.GLASS) return true;
-                else if (stateFrom.getBlock() == this) return true;
+        if (neighbourState.getBlock() == Blocks.GLASS) return true;
+        if (neighbourState.getBlock() == this) if (slabSideInvisible(state, neighbourState, dir)) return true;
+
+        return super.isSideInvisible(state, neighbourState, dir);
+    }
+
+    //Might merge this with general function idk yet.
+    @Beta
+    private boolean slabSideInvisible(BlockState slabState, BlockState neighbourState, Direction dir)
+    {
+        SlabType slabType = slabState.get(TYPE);
+        SlabType neighbourType = neighbourState.get(TYPE);
+
+        if (neighbourType == SlabType.DOUBLE) return true;
+
+        switch (dir)
+        {
+            case NORTH: case SOUTH: case EAST: case WEST:
+                if(slabType == neighbourType) return true;
             default:
-                return super.isSideInvisible(state, stateFrom, direction);
+                break;
         }
-    }*/
+
+        return false;
+    }
 
     @Nullable
     @Override
@@ -123,6 +137,7 @@ public class HorizontalPaneBlock extends SlabBlock implements Waterloggable
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
     {
         SlabType type = state.get(TYPE);
@@ -138,6 +153,7 @@ public class HorizontalPaneBlock extends SlabBlock implements Waterloggable
 
     @Environment(EnvType.CLIENT)
     @Override
+    @SuppressWarnings("deprecation")
     public float getAmbientOcclusionLightLevel(BlockState state, BlockView world, BlockPos pos)
     {
         return 1.0F;
