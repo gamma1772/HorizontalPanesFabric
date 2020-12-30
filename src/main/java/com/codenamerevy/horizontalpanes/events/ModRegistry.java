@@ -40,7 +40,12 @@ public class ModRegistry
     {
         registerBlocks();
         registerItems();
-        blockRendering();
+
+    }
+
+    public static void clientSetup()
+    {
+        registerRender();
     }
 
     private static void registerBlocks()
@@ -91,7 +96,7 @@ public class ModRegistry
         Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_black_pane"),       new BlockItem(HPContent.BLACK_PANE,         new Item.Settings().group(ItemGroup.DECORATIONS)));
     }
 
-    private static void blockRendering()
+    private static void registerRender()
     {
         //BlockRenderLayerMap.INSTANCE.putBlock(HPContent.TEST_BLOCK,         RenderLayer.getCutout());
 

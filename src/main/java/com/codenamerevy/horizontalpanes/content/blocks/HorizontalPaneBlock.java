@@ -100,8 +100,6 @@ public class HorizontalPaneBlock extends SlabBlock implements Waterloggable
         return super.isSideInvisible(state, neighbourState, dir);
     }
 
-    //Might merge this with general function idk yet.
-    @Beta
     private boolean slabSideInvisible(BlockState slabState, BlockState neighbourState, Direction dir)
     {
         SlabType slabType = slabState.get(TYPE);
