@@ -24,6 +24,7 @@
 package com.codenamerevy.horizontalpanes.init;
 
 import com.codenamerevy.horizontalpanes.content.blocks.HorizontalPaneBlock;
+import com.codenamerevy.horizontalpanes.content.blocks.HorizontalTintedGlassPane;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -39,7 +40,11 @@ public class HPContent
     private static Boolean never(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityType<?> entityType) { return false; }
     private static boolean never(BlockState blockState, BlockView blockView, BlockPos blockPos) { return false; }
 
+    private static Boolean always(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityType<?> entityType) { return true; }
+    private static boolean always(BlockState blockState, BlockView blockView, BlockPos blockPos) { return true; };
+
     private static final FabricBlockSettings HORIZONTAL_PANE_SETTINGS = FabricBlockSettings.of(Material.GLASS).nonOpaque().solidBlock(HPContent::never).blockVision(HPContent::never).suffocates(HPContent::never).allowsSpawning(HPContent::never).breakByHand(false).hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS);
+    private static final FabricBlockSettings HORIZONTAL_TINTED_PANE_SETTINGS = FabricBlockSettings.of(Material.GLASS).nonOpaque().solidBlock(HPContent::never).blockVision(HPContent::always).suffocates(HPContent::never).allowsSpawning(HPContent::never).breakByHand(false).hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS);
 
     public static final Block GLASS_PANE        = new HorizontalPaneBlock(HORIZONTAL_PANE_SETTINGS);
 
@@ -60,5 +65,5 @@ public class HPContent
     public static final Block RED_PANE          = new HorizontalPaneBlock(HORIZONTAL_PANE_SETTINGS);
     public static final Block BLACK_PANE        = new HorizontalPaneBlock(HORIZONTAL_PANE_SETTINGS);
 
-
+    public static final Block TINTED_PANE       = new HorizontalTintedGlassPane(HORIZONTAL_TINTED_PANE_SETTINGS);
 }

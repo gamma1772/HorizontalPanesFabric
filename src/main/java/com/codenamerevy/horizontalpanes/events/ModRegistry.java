@@ -70,6 +70,8 @@ public class ModRegistry
         Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_green_pane"),       HPContent.GREEN_PANE);
         Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_red_pane"),         HPContent.RED_PANE);
         Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_black_pane"),       HPContent.BLACK_PANE);
+
+        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_tinted_glass_pane"),        HPContent.TINTED_PANE);
     }
 
     private static void registerItems()
@@ -94,6 +96,8 @@ public class ModRegistry
         Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_green_pane"),       new BlockItem(HPContent.GREEN_PANE,         new Item.Settings().group(ItemGroup.DECORATIONS)));
         Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_red_pane"),         new BlockItem(HPContent.RED_PANE,           new Item.Settings().group(ItemGroup.DECORATIONS)));
         Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_black_pane"),       new BlockItem(HPContent.BLACK_PANE,         new Item.Settings().group(ItemGroup.DECORATIONS)));
+
+        Registry.register(Registry.ITEM, new Identifier(HorizontalPanes.MODID, "horizontal_tinted_glass_pane"), new BlockItem(HPContent.TINTED_PANE,                new Item.Settings().group(ItemGroup.DECORATIONS)));
     }
 
     private static void registerRender()
@@ -118,6 +122,8 @@ public class ModRegistry
         BlockRenderLayerMap.INSTANCE.putBlock(HPContent.GREEN_PANE,         RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(HPContent.RED_PANE,           RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(HPContent.BLACK_PANE,         RenderLayer.getTranslucent());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.TINTED_PANE,        RenderLayer.getTranslucent());
     }
 }
 
