@@ -21,10 +21,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.codenamerevy.horizontalpanes.init;
+package com.gamma1772.horizontalpanes.init;
 
-import com.codenamerevy.horizontalpanes.content.blocks.HorizontalPaneBlock;
-import com.codenamerevy.horizontalpanes.content.blocks.HorizontalTintedGlassPane;
+import com.gamma1772.horizontalpanes.content.blocks.HorizontalPaneBlock;
+import com.gamma1772.horizontalpanes.content.blocks.HorizontalTintedGlassPane;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

@@ -6,13 +6,13 @@
   "name": "Horizontal Panes",
   "description": "This mod is a port of its Forge counterpart",
   "authors": [
-    "Codename Revy",
+    "Gamma1772 (CodenameRevy)",
     "pgkrol (Russian translations)",
     "mindy15963 (Korean translations)"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/CodenameRevy/Horizontal-Panes-fabric"
+    "homepage": "https://gamma1772.github.io",
+    "sources": "https://github.com/Gamma1772/HorizontalPanesFabric"
   },
 
   "license": "MIT License",
@@ -21,10 +21,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.codenamerevy.horizontalpanes.HorizontalPanes"
+      "com.gamma1772.horizontalpanes.HorizontalPanes"
     ],
     "client": [
-      "com.codenamerevy.horizontalpanes.HorizontalPanesClient"
+      "com.gamma1772.horizontalpanes.HorizontalPanesClient"
     ]
   },
 

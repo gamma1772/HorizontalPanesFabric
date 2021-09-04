@@ -21,10 +21,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.codenamerevy.horizontalpanes.events;
+package com.gamma1772.horizontalpanes.events;
 
-import com.codenamerevy.horizontalpanes.HorizontalPanes;
-import com.codenamerevy.horizontalpanes.init.HPContent;
+import com.gamma1772.horizontalpanes.HorizontalPanes;
+import com.gamma1772.horizontalpanes.init.HPContent;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;

@@ -21,20 +21,21 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.codenamerevy.horizontalpanes;
+package com.gamma1772.horizontalpanes;
 
-import com.codenamerevy.horizontalpanes.events.ModRegistry;
-import net.fabricmc.api.ClientModInitializer;
+import com.gamma1772.horizontalpanes.events.ModRegistry;
+import net.fabricmc.api.ModInitializer;
 
-public class HorizontalPanesClient implements ClientModInitializer
-{
+public class HorizontalPanes implements ModInitializer {
 
-    public static HorizontalPanesClient INSTANCE;
+	public static final String MODID = "horizontalpanes";
 
-    @Override
-    public void onInitializeClient()
-    {
-        INSTANCE = this;
-        ModRegistry.clientSetup();
-    }
+	public static HorizontalPanes INSTANCE;
+
+	@Override
+	public void onInitialize()
+	{
+		INSTANCE = this;
+		ModRegistry.setup();
+	}
 }

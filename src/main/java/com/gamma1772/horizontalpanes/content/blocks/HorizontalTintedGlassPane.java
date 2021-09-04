@@ -1,4 +1,4 @@
-package com.codenamerevy.horizontalpanes.content.blocks;
+package com.gamma1772.horizontalpanes.content.blocks;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
