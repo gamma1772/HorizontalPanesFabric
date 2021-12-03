@@ -36,7 +36,6 @@ import net.minecraft.world.BlockView;
 
 public class HPContent
 {
-    //public static final Block TEST_BLOCK        = new HorizontalPaneBlock(FabricBlockSettings.of(Material.GLASS).hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS));
     private static Boolean never(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityType<?> entityType) { return false; }
     private static boolean never(BlockState blockState, BlockView blockView, BlockPos blockPos) { return false; }
 

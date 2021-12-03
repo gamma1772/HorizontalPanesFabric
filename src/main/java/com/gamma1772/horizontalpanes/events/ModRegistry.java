@@ -50,8 +50,6 @@ public class ModRegistry
 
     private static void registerBlocks()
     {
-        //Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "test_block"),                          HPContent.TEST_BLOCK);
-
         Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_glass_pane"),               HPContent.GLASS_PANE);
 
         Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_white_pane"),       HPContent.WHITE_PANE);
@@ -76,8 +74,6 @@ public class ModRegistry
 
     private static void registerItems()
     {
-        //Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "test_block"),                          new BlockItem(HPContent.TEST_BLOCK,         new Item.Settings().group(ItemGroup.DECORATIONS)));
-
         Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_glass_pane"),               new BlockItem(HPContent.GLASS_PANE,         new Item.Settings().group(ItemGroup.DECORATIONS)));
 
         Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_white_pane"),       new BlockItem(HPContent.WHITE_PANE,         new Item.Settings().group(ItemGroup.DECORATIONS)));
@@ -102,8 +98,6 @@ public class ModRegistry
 
     private static void registerRender()
     {
-        //BlockRenderLayerMap.INSTANCE.putBlock(HPContent.TEST_BLOCK,         RenderLayer.getCutout());
-
         BlockRenderLayerMap.INSTANCE.putBlock(HPContent.GLASS_PANE,         RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(HPContent.WHITE_PANE,         RenderLayer.getTranslucent());
