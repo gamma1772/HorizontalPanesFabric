@@ -67,14 +67,11 @@ public class HorizontalPaneBlock extends SlabBlock implements Waterloggable
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
     {
         SlabType slabType = state.get(TYPE);
-        switch(slabType) {
-            case DOUBLE:
-                return SHAPE_COM;
-            case TOP:
-                return SHAPE_TOP;
-            default:
-                return SHAPE_BOT;
-        }
+        return switch (slabType) {
+            case DOUBLE -> SHAPE_COM;
+            case TOP -> SHAPE_TOP;
+            default -> SHAPE_BOT;
+        };
     }
 
     @Override
@@ -127,14 +124,11 @@ public class HorizontalPaneBlock extends SlabBlock implements Waterloggable
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context)
     {
         SlabType type = state.get(TYPE);
-        switch(type) {
-            case DOUBLE:
-                return SHAPE_COM;
-            case TOP:
-                return SHAPE_TOP;
-            default:
-                return SHAPE_BOT;
-        }
+        return switch (type) {
+            case DOUBLE -> SHAPE_COM;
+            case TOP -> SHAPE_TOP;
+            default -> SHAPE_BOT;
+        };
     }
 
     @Environment(EnvType.CLIENT)
