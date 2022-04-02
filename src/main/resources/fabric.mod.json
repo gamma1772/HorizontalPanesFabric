@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Horizontal Panes",
-  "description": "This mod is a port of its Forge counterpart",
+  "description": "Adds horizontal counterparts to glass panes.",
   "authors": [
     "Gamma1772 (CodenameRevy)",
     "pgkrol (Russian translations)",
