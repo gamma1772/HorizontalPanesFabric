@@ -6,7 +6,7 @@
   "name": "Horizontal Panes",
   "description": "Adds horizontal counterparts to glass panes.",
   "authors": [
-    "Gamma1772 (CodenameRevy)",
+    "Gamma1772",
     "pgkrol (Russian translations)",
     "mindy15963 (Korean translations)"
   ],
@@ -29,8 +29,8 @@
   },
 
   "depends": {
-    "fabricloader": ">=0.13.3",
+    "fabricloader": ">=0.14.7",
     "fabric": "*",
-    "minecraft": "1.18.x"
+    "minecraft": "1.19.x"
   }
 }
