@@ -25,10 +25,9 @@ package com.gamma1772.horizontalpanes.init;
 
 import com.gamma1772.horizontalpanes.content.blocks.HorizontalPaneBlock;
 import com.gamma1772.horizontalpanes.content.blocks.HorizontalTintedGlassPane;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Material;
 import net.minecraft.entity.EntityType;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
@@ -42,8 +41,8 @@ public class HPContent
     private static Boolean always(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityType<?> entityType) { return true; }
     private static boolean always(BlockState blockState, BlockView blockView, BlockPos blockPos) { return true; };
 
-    private static final FabricBlockSettings HORIZONTAL_PANE_SETTINGS = FabricBlockSettings.of(Material.GLASS).nonOpaque().solidBlock(HPContent::never).blockVision(HPContent::never).suffocates(HPContent::never).allowsSpawning(HPContent::never).requiresTool().hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS);
-    private static final FabricBlockSettings HORIZONTAL_TINTED_PANE_SETTINGS = FabricBlockSettings.of(Material.GLASS).nonOpaque().solidBlock(HPContent::never).blockVision(HPContent::always).suffocates(HPContent::never).allowsSpawning(HPContent::never).requiresTool().hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS);
+    private static final AbstractBlock.Settings HORIZONTAL_PANE_SETTINGS = AbstractBlock.Settings.create().nonOpaque().solidBlock(HPContent::never).blockVision(HPContent::never).suffocates(HPContent::never).allowsSpawning(HPContent::never).requiresTool().hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS);
+    private static final AbstractBlock.Settings HORIZONTAL_TINTED_PANE_SETTINGS = AbstractBlock.Settings.create().nonOpaque().solidBlock(HPContent::never).blockVision(HPContent::always).suffocates(HPContent::never).allowsSpawning(HPContent::never).requiresTool().hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS);
 
     public static final Block GLASS_PANE        = new HorizontalPaneBlock(HORIZONTAL_PANE_SETTINGS);
 

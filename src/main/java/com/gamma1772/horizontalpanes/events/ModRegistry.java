@@ -23,101 +23,97 @@
 
 package com.gamma1772.horizontalpanes.events;
 
-import com.gamma1772.horizontalpanes.HorizontalPanes;
 import com.gamma1772.horizontalpanes.init.HPContent;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.RenderLayer;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+
+import static com.gamma1772.horizontalpanes.HorizontalPanes.MODID;
 
 
-public class ModRegistry
-{
-    public static void setup()
-    {
+public class ModRegistry {
+
+    public static final RegistryKey<ItemGroup> HORIZONTAL_PANES = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(MODID, "additionalbars"));
+
+    public static void setup() {
         registerBlocks();
-        registerItems();
+        registerItemGroups();
+        addItemsToItemGroup();
 
     }
 
-    public static void clientSetup()
-    {
-        registerRender();
+    private static void registerBlocks() {
+        register(HPContent.GLASS_PANE, "horizontal_glass_pane", true);
+
+        register(HPContent.WHITE_PANE, "horizontal_stained_white_pane", true);
+        register(HPContent.ORANGE_PANE, "horizontal_stained_orange_pane", true);
+        register(HPContent.MAGENTA_PANE, "horizontal_stained_magenta_pane", true);
+        register(HPContent.LIGHT_BLUE_PANE, "horizontal_stained_light_blue_pane", true);
+        register(HPContent.YELLOW_PANE, "horizontal_stained_yellow_pane", true);
+        register(HPContent.LIME_PANE, "horizontal_stained_lime_pane", true);
+        register(HPContent.PINK_PANE, "horizontal_stained_pink_pane", true);
+        register(HPContent.GRAY_PANE, "horizontal_stained_gray_pane", true);
+        register(HPContent.SILVER_PANE, "horizontal_stained_light_gray_pane", true);
+        register(HPContent.CYAN_PANE, "horizontal_stained_cyan_pane", true);
+        register(HPContent.PURPLE_PANE, "horizontal_stained_purple_pane", true);
+        register(HPContent.BLUE_PANE, "horizontal_stained_blue_pane", true);
+        register(HPContent.BROWN_PANE, "horizontal_stained_brown_pane", true);
+        register(HPContent.GREEN_PANE, "horizontal_stained_green_pane", true);
+        register(HPContent.RED_PANE, "horizontal_stained_red_pane", true);
+        register(HPContent.BLACK_PANE, "horizontal_stained_black_pane", true);
+
+        register(HPContent.TINTED_PANE, "horizontal_tinted_glass_pane", true);
     }
 
-    private static void registerBlocks()
-    {
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_glass_pane"),               HPContent.GLASS_PANE);
-
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_white_pane"),       HPContent.WHITE_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_orange_pane"),      HPContent.ORANGE_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_magenta_pane"),     HPContent.MAGENTA_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_light_blue_pane"),  HPContent.LIGHT_BLUE_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_yellow_pane"),      HPContent.YELLOW_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_lime_pane"),        HPContent.LIME_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_pink_pane"),        HPContent.PINK_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_gray_pane"),        HPContent.GRAY_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_light_gray_pane"),  HPContent.SILVER_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_cyan_pane"),        HPContent.CYAN_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_purple_pane"),      HPContent.PURPLE_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_blue_pane"),        HPContent.BLUE_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_brown_pane"),       HPContent.BROWN_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_green_pane"),       HPContent.GREEN_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_red_pane"),         HPContent.RED_PANE);
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_stained_black_pane"),       HPContent.BLACK_PANE);
-
-        Registry.register(Registry.BLOCK, new Identifier(HorizontalPanes.MODID, "horizontal_tinted_glass_pane"),        HPContent.TINTED_PANE);
+    public static void registerItemGroups() {
+        Registry.register(Registries.ITEM_GROUP, HORIZONTAL_PANES, FabricItemGroup.builder()
+                .icon(() -> new ItemStack(HPContent.TINTED_PANE))
+                .displayName(Text.translatable("itemGroup.horizontalpanes.horizontalpanes"))
+                .build());
     }
 
-    private static void registerItems()
-    {
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_glass_pane"),               new BlockItem(HPContent.GLASS_PANE,         new Item.Settings().group(ItemGroup.DECORATIONS)));
-
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_white_pane"),       new BlockItem(HPContent.WHITE_PANE,         new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_orange_pane"),      new BlockItem(HPContent.ORANGE_PANE,        new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_magenta_pane"),     new BlockItem(HPContent.MAGENTA_PANE,       new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_light_blue_pane"),  new BlockItem(HPContent.LIGHT_BLUE_PANE,    new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_yellow_pane"),      new BlockItem(HPContent.YELLOW_PANE,        new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_lime_pane"),        new BlockItem(HPContent.LIME_PANE,          new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_pink_pane"),        new BlockItem(HPContent.PINK_PANE,          new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_gray_pane"),        new BlockItem(HPContent.GRAY_PANE,          new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_light_gray_pane"),  new BlockItem(HPContent.SILVER_PANE,        new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_cyan_pane"),        new BlockItem(HPContent.CYAN_PANE,          new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_purple_pane"),      new BlockItem(HPContent.PURPLE_PANE,        new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_blue_pane"),        new BlockItem(HPContent.BLUE_PANE,          new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_brown_pane"),       new BlockItem(HPContent.BROWN_PANE,         new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_green_pane"),       new BlockItem(HPContent.GREEN_PANE,         new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_red_pane"),         new BlockItem(HPContent.RED_PANE,           new Item.Settings().group(ItemGroup.DECORATIONS)));
-        Registry.register(Registry.ITEM,  new Identifier(HorizontalPanes.MODID, "horizontal_stained_black_pane"),       new BlockItem(HPContent.BLACK_PANE,         new Item.Settings().group(ItemGroup.DECORATIONS)));
-
-        Registry.register(Registry.ITEM, new Identifier(HorizontalPanes.MODID, "horizontal_tinted_glass_pane"), new BlockItem(HPContent.TINTED_PANE,                new Item.Settings().group(ItemGroup.DECORATIONS)));
+    public static void addItemsToItemGroup() {
+        ItemGroupEvents.modifyEntriesEvent(HORIZONTAL_PANES).register(content -> {
+            content.add(HPContent.GLASS_PANE.asItem());
+            content.add(HPContent.WHITE_PANE.asItem());
+            content.add(HPContent.ORANGE_PANE.asItem());
+            content.add(HPContent.MAGENTA_PANE.asItem());
+            content.add(HPContent.LIGHT_BLUE_PANE.asItem());
+            content.add(HPContent.YELLOW_PANE.asItem());
+            content.add(HPContent.LIME_PANE.asItem());
+            content.add(HPContent.PINK_PANE.asItem());
+            content.add(HPContent.GRAY_PANE.asItem());
+            content.add(HPContent.SILVER_PANE.asItem());
+            content.add(HPContent.CYAN_PANE.asItem());
+            content.add(HPContent.PURPLE_PANE.asItem());
+            content.add(HPContent.BLUE_PANE.asItem());
+            content.add(HPContent.BROWN_PANE.asItem());
+            content.add(HPContent.GREEN_PANE.asItem());
+            content.add(HPContent.RED_PANE.asItem());
+            content.add(HPContent.BLACK_PANE.asItem());
+            content.add(HPContent.TINTED_PANE.asItem());
+        });
     }
 
-    private static void registerRender()
-    {
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.GLASS_PANE,         RenderLayer.getCutout());
+    private static Block register(Block block, String name, boolean shouldRegisterItem) {
+        Identifier id = Identifier.of(MODID, name);
 
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.WHITE_PANE,         RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.ORANGE_PANE,        RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.MAGENTA_PANE,       RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.LIGHT_BLUE_PANE,    RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.YELLOW_PANE,        RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.LIME_PANE,          RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.PINK_PANE,          RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.GRAY_PANE,          RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.SILVER_PANE,        RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.CYAN_PANE,          RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.PURPLE_PANE,        RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.BLUE_PANE,          RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.BROWN_PANE,         RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.GREEN_PANE,         RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.RED_PANE,           RenderLayer.getTranslucent());
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.BLACK_PANE,         RenderLayer.getTranslucent());
+        if (shouldRegisterItem) {
+            BlockItem blockItem = new BlockItem(block, new Item.Settings());
+            Registry.register(Registries.ITEM, id, blockItem);
+        }
 
-        BlockRenderLayerMap.INSTANCE.putBlock(HPContent.TINTED_PANE,        RenderLayer.getTranslucent());
+        return Registry.register(Registries.BLOCK, id, block);
     }
 }
 
