@@ -24,6 +24,8 @@
 package com.gamma1772.horizontalpanes;
 
 import com.gamma1772.horizontalpanes.events.ModRegistry;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
 
 public class HorizontalPanes implements ModInitializer {
