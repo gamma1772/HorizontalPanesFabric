@@ -23,9 +23,12 @@
 
 package com.gamma1772.horizontalpanes;
 
-import com.gamma1772.horizontalpanes.events.ModRegistry;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import com.gamma1772.horizontalpanes.render.BlockRenderRegistry;
 
+@Environment(EnvType.CLIENT)
 public class HorizontalPanesClient implements ClientModInitializer
 {
 
@@ -35,6 +38,6 @@ public class HorizontalPanesClient implements ClientModInitializer
     public void onInitializeClient()
     {
         INSTANCE = this;
-        ModRegistry.clientSetup();
+        BlockRenderRegistry.registerRender();
     }
 }
