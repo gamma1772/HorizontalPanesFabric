@@ -21,13 +21,13 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.codenamerevy.horizontalpanes.init;
+package com.gamma1772.horizontalpanes.init;
 
-import com.codenamerevy.horizontalpanes.content.blocks.HorizontalPaneBlock;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import com.gamma1772.horizontalpanes.content.blocks.HorizontalPaneBlock;
+import com.gamma1772.horizontalpanes.content.blocks.HorizontalTintedGlassPane;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Material;
 import net.minecraft.entity.EntityType;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.BlockPos;
@@ -35,11 +35,14 @@ import net.minecraft.world.BlockView;
 
 public class HPContent
 {
-    //public static final Block TEST_BLOCK        = new HorizontalPaneBlock(FabricBlockSettings.of(Material.GLASS).hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS));
     private static Boolean never(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityType<?> entityType) { return false; }
     private static boolean never(BlockState blockState, BlockView blockView, BlockPos blockPos) { return false; }
 
-    private static final FabricBlockSettings HORIZONTAL_PANE_SETTINGS = FabricBlockSettings.of(Material.GLASS).nonOpaque().solidBlock(HPContent::never).blockVision(HPContent::never).suffocates(HPContent::never).allowsSpawning(HPContent::never).breakByHand(false).hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS);
+    private static Boolean always(BlockState blockState, BlockView blockView, BlockPos blockPos, EntityType<?> entityType) { return true; }
+    private static boolean always(BlockState blockState, BlockView blockView, BlockPos blockPos) { return true; };
+
+    private static final AbstractBlock.Settings HORIZONTAL_PANE_SETTINGS = AbstractBlock.Settings.create().nonOpaque().solidBlock(HPContent::never).blockVision(HPContent::never).suffocates(HPContent::never).allowsSpawning(HPContent::never).requiresTool().hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS);
+    private static final AbstractBlock.Settings HORIZONTAL_TINTED_PANE_SETTINGS = AbstractBlock.Settings.create().nonOpaque().solidBlock(HPContent::never).blockVision(HPContent::always).suffocates(HPContent::never).allowsSpawning(HPContent::never).requiresTool().hardness(0.3F).resistance(0.3F).sounds(BlockSoundGroup.GLASS);
 
     public static final Block GLASS_PANE        = new HorizontalPaneBlock(HORIZONTAL_PANE_SETTINGS);
 
@@ -60,5 +63,5 @@ public class HPContent
     public static final Block RED_PANE          = new HorizontalPaneBlock(HORIZONTAL_PANE_SETTINGS);
     public static final Block BLACK_PANE        = new HorizontalPaneBlock(HORIZONTAL_PANE_SETTINGS);
 
-
+    public static final Block TINTED_PANE       = new HorizontalTintedGlassPane(HORIZONTAL_TINTED_PANE_SETTINGS);
 }

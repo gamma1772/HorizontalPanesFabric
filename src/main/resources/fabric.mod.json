@@ -4,36 +4,31 @@
   "version": "${version}",
 
   "name": "Horizontal Panes",
-  "description": "This mod is a port of its Forge counterpart",
+  "description": "Adds horizontal counterparts to glass panes.",
   "authors": [
-    "Codename Revy",
-    "pgkrol (Russian translations)",
-    "mindy15963 (Korean translations)"
+    "Gamma1772"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/CodenameRevy/Horizontal-Panes-fabric"
+    "homepage": "https://mdujovic17.github.io",
+    "sources": "https://github.com/mdujovic17/HorizontalPanesFabric"
   },
 
   "license": "MIT License",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/horizontalpanes/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.codenamerevy.horizontalpanes.HorizontalPanes"
+      "com.gamma1772.horizontalpanes.HorizontalPanes"
     ],
     "client": [
-      "com.codenamerevy.horizontalpanes.HorizontalPanesClient"
+      "com.gamma1772.horizontalpanes.HorizontalPanesClient"
     ]
   },
 
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.16.0",
     "fabric": "*",
-    "minecraft": "1.16.x"
-  },
-  "suggests": {
-    "another-mod": "*"
+    "minecraft": "1.21.1"
   }
 }
