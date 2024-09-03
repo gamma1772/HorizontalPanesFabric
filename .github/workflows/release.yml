@@ -5,7 +5,7 @@ env:
   MINECRAFT_VERSION: 1.21.1
   JAVA_VERSION: 21
   VERSION: 2.0.0+1.21.1
-  RELEASE_NAME: Horizontal Panes 5.0.0
+  RELEASE_NAME: Horizontal Panes 2.0.0
   GITHUB_TOKEN: ${{ secrets.PUBLISH_GITHUB_TOKEN }}
 
 permissions:
